@@ -15,7 +15,11 @@ for comment in user.comments.top(limit=None):
         if comment.is_submitter:
            print('* ', end="")
         else:
-            print(comment.submission.title + "  by: " + comment.submission.author.name + '\n')
+            print(comment.submission.title + "  by: ", end="")
+            if(comment.submission.author is None):
+                print("[deleted] \n")
+            else:
+                print(comment.submission.author.name + '\n')
         print(user.name)
         print(comment.body + '\n')
 
