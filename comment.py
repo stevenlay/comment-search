@@ -12,6 +12,7 @@ subreddit = sys.argv[2]
 print("User: " + user.name + "  Subreddit: " + subreddit + '\n')
 for comment in user.comments.top(limit=None):
     if comment.subreddit == subreddit:
+        print("------------------------------- \n")
         if comment.is_submitter:
             print('* ', end="")
         else:
@@ -20,9 +21,8 @@ for comment in user.comments.top(limit=None):
                 print("[deleted] \n")
             else:
                 print(comment.submission.author.name + '\n')
-        print("----------------------------------- \n")
         print(user.name)
-        print(comment.body + '\n')
+        print(comment.body + '\n \n')
 
     
 
