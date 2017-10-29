@@ -13,13 +13,14 @@ print("User: " + user.name + "  Subreddit: " + subreddit + '\n')
 for comment in user.comments.top(limit=None):
     if comment.subreddit == subreddit:
         if comment.is_submitter:
-           print('* ', end="")
+            print('* ', end="")
         else:
             print(comment.submission.title + "  by: ", end="")
             if(comment.submission.author is None):
                 print("[deleted] \n")
             else:
                 print(comment.submission.author.name + '\n')
+        print("----------------------------------- \n")
         print(user.name)
         print(comment.body + '\n')
 
