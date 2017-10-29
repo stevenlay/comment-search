@@ -9,11 +9,14 @@ reddit = praw.Reddit("comment_searcher")
 user= reddit.redditor("%s" % sys.argv[1])
 subreddit = sys.argv[2]
 
-print("User: " + user.name + "  Subreddit: " + subreddit)
+print("User: " + user.name + "  Subreddit: " + subreddit + '\n')
 for comment in user.comments.top(limit=None):
     if comment.subreddit == subreddit:
         if comment.is_submitter:
            print('* ', end="")
+        else:
+            print(comment.submission.title + "  by: " + comment.submission.author.name + '\n')
+        print(user.name)
         print(comment.body + '\n')
 
     
